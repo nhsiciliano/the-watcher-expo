@@ -1,5 +1,5 @@
 import { Colors } from "@/constants/Colors";
-import { Text, View, SafeAreaView, StyleSheet } from "react-native";
+import { Text, View, StyleSheet, ScrollView } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import React, { useEffect, useState } from 'react'
 import TopHeadlineSlider from "@/components/home/TopHeadlineSlider";
@@ -21,7 +21,7 @@ export default function Index() {
   }
 
   return (
-    <SafeAreaView
+    <ScrollView
       style={styles.area}
     >
       <View
@@ -33,7 +33,7 @@ export default function Index() {
       <CategoryTextSlider />
       <TopHeadlineSlider newsList={newsList}/>
       <HeadlineList newsList={newsList} />
-    </SafeAreaView>
+    </ScrollView>
   );
 }
 

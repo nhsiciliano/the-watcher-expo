@@ -1,5 +1,6 @@
+import { Colors } from '@/constants/Colors'
 import React from 'react'
-import { FlatList, Image, StyleSheet, TouchableOpacity, View } from 'react-native'
+import { FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 
 function HeadlineList({ newsList } : any) {
     return (
@@ -7,12 +8,23 @@ function HeadlineList({ newsList } : any) {
             <FlatList
                 data={newsList}
                 renderItem={({ item }) => (
-                    <TouchableOpacity>
-                        <Image
-                            source={{ uri: item.urlToImage }}
-                            style={styles.listImage}
-                        />
-                    </TouchableOpacity>
+                    <View>
+                        <View style={{ height: 1, backgroundColor: Colors.lightGray, marginTop: 10 }}></View>
+                        <TouchableOpacity
+                            style={{ marginTop: 15, display: "flex", flexDirection: "row" }}
+                        >
+                            <Image
+                                source={{ uri: item.urlToImage }}
+                                style={styles.listImage}
+                            />
+                            <View
+                                style={{ marginRight: 130, marginLeft: 10 }}
+                            >
+                                <Text numberOfLines={4} style={{ fontSize: 18, fontWeight: "bold" }}>{item.title}</Text>
+                                <Text style={{ color: Colors.primary, marginTop: 6 }}>{item?.source?.name}</Text>
+                            </View>
+                        </TouchableOpacity>
+                    </View>
                 )}
             />
         </View>
